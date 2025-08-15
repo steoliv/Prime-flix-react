@@ -72,7 +72,7 @@ function Filme(){
       <div className="area-buttons">
         <button onClick={salvarFilme}> Salvar</button>
         <button>
-            <a href={`https://www.youtube.com/results?search_query=${filme.title}+trailer`} target="_blank" rel="external">Assistir Trailer</a>
+            <a href={`https://www.youtube.com/results?search_query=${filme.title}+trailer`} target="blank" rel="external">Assistir Trailer</a>
         </button>
         
       </div>
