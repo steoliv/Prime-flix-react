@@ -1,27 +1,63 @@
-import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import api from "../../services/api";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'
+import "./filme.css";
 
+import api from '../../services/api';
 
 function Filme(){
-    const {id} = useParams();
+  const { id } = useParams();
+  const [filme, setFilme] = useState({});
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        async function loadFilme(){
-            await api.get(`/movie/${id}`, {
-                params:{
-                    api_key: "41cc98c8327a81134f528d684b42ea6e",
-                    language: "pt-BR",
-                }
-            })
+  useEffect(()=>{
+    async function loadFilme(){
+      await api.get(`/movie/${id}`, {
+        params:{
+          api_key: "28fc232cc001c31e8a031f419d0a14ca",
+          language: "pt-BR",
         }
-        loadFilme();
-    })
+      })
+      .then((response)=>{
+        setFilme(response.data);
+        setLoading(false);
+      })
+      .catch(()=>{
+        console.log("FILME NAO ENCONTRADO")
+      })
+    }
+
+    loadFilme();
+
+  }, [])
+
+  if(loading){
     return(
-        <div>
-            <h1> Acessando filme {id}</h1>
-        </div>
+      <div className="filme-info">
+        <h1>Carregando detalhes...</h1>
+      </div>
     )
+  }
+  
+  return(
+    <div className="filme-info">
+      <h1>{filme.title}</h1>
+      <img src={`https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt={filme.title} />
+
+      <h3>Sinopse</h3>
+      <span>{filme.overview}</span>
+
+      <strong>Avalição: {filme.vote_average} / 10</strong>
+
+      <div className="area-buttons">
+        <button> Salvar</button>
+        <button>
+            <a href={`https://www.youtube.com/results?search_query=${filme.title}+trailer`} target="_blank" rel="external">Assistir Trailer</a>
+        </button>
+        
+      </div>
+
+    </div>
+  )
 }
 
-export default Filme
+export default Filme;
