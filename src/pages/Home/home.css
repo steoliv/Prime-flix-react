@@ -44,3 +44,10 @@
 .lista-filmes a:hover {
     opacity: 0.7;
 }
+
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14px;
+}  
