@@ -31,7 +31,7 @@ function Filme(){
 
     loadFilme();
 
-  }, [])
+  }, [navigate, id])
 
   if(loading){
     return(
