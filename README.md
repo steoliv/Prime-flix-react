@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# 🎬 Prime Flix React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Uma aplicação web simples desenvolvida em React que permite aos usuários explorar filmes em cartaz, visualizar detalhes dos filmes e gerenciar uma lista de favoritos. O projeto consome a API do The Movie Database (TMDB) para obter informações sobre filmes.
 
-## Available Scripts
 
-In the project directory, you can run:
+## ✨ Funcionalidades
 
-### `npm start`
+- **Página Inicial**: Exibe os filmes em cartaz com poster, título e link para detalhes
+- **Detalhes do Filme**: Página dedicada com informações do filme selecionado
+- **Sistema de Favoritos**: Permite salvar filmes em uma lista pessoal
+- **Gerenciamento de Favoritos**: Visualizar e remover filmes da lista de favoritos
+- **Navegação Intuitiva**: Interface limpa com header de navegação
+- **Notificações**: Sistema de toast para feedback do usuário
+- **Responsividade**: Interface adaptável para diferentes dispositivos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Tecnologias Utilizadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React 19.1.1** - Biblioteca JavaScript para construção de interfaces
+- **React Router DOM 7.8.0** - Roteamento para navegação entre páginas
+- **Axios 1.11.0** - Cliente HTTP para requisições à API
+- **React Toastify 11.0.5** - Sistema de notificações toast
+- **CSS3** - Estilização das páginas e componentes
+- **The Movie Database API** - Fonte de dados dos filmes
 
-### `npm test`
+## 📁 Estrutura do Projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+prime-flix-react/
+├── public/                 # Arquivos públicos
+├── src/
+│   ├── components/         # Componentes reutilizáveis
+│   │   └── Header/        # Cabeçalho da aplicação
+│   ├── pages/             # Páginas da aplicação
+│   │   ├── Home/          # Página inicial
+│   │   ├── Filme/         # Detalhes do filme
+│   │   ├── Favoritos/     # Lista de favoritos
+│   │   └── Erro/          # Página de erro
+│   ├── services/          # Serviços e configurações
+│   │   └── api.js         # Configuração da API
+│   ├── App.js             # Componente principal
+│   ├── routes.js          # Configuração de rotas
+│   └── index.js           # Ponto de entrada
+└── package.json           # Dependências e scripts
+```
 
-### `npm run build`
+## 🚀 Como Executar o Projeto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Pré-requisitos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (versão 14 ou superior)
+- npm ou yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Instalação
 
-### `npm run eject`
+1. Clone o repositório:
+```bash
+git clone git@github.com:steoliv/Prime-flix-react.git
+cd prime-flix-react
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Instale as dependências:
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Execute o projeto em modo de desenvolvimento:
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Abra [http://localhost:3000](http://localhost:3000) no seu navegador para visualizar a aplicação.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Scripts Disponíveis
 
-## Learn More
+- `npm start` - Executa o projeto em modo de desenvolvimento
+- `npm build` - Cria uma versão otimizada para produção
+- `npm test` - Executa os testes automatizados
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📱 Como Usar
 
-### Code Splitting
+1. **Página Inicial**: Visualize os filmes em cartaz na tela principal
+2. **Ver Detalhes**: Clique em "Acessar" em qualquer filme para ver informações completas
+3. **Salvar Filme**: Na página de detalhes, clique em "Salvar" para adicionar à lista de favoritos
+4. **Gerenciar Favoritos**: Acesse "Meus filmes" no header para ver e remover filmes salvos
+5. **Assistir Trailer**: Na página de detalhes, clique em "Assistir Trailer" para buscar no YouTube
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🔧 Configuração da API
 
-### Analyzing the Bundle Size
+O projeto utiliza a API do The Movie Database (TMDB). Para usar sua própria chave de API:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Registre-se em [https://www.themoviedb.org/](https://www.themoviedb.org/)
+2. Obtenha sua chave de API
+3. Substitua a chave no arquivo `src/services/api.js` ou nas chamadas da API
 
-### Making a Progressive Web App
+## 📝 Funcionalidades Técnicas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Local Storage**: Os favoritos são salvos no navegador do usuário
+- **Roteamento Dinâmico**: URLs com parâmetros para páginas de filmes específicos
+- **Tratamento de Erros**: Página de erro 404 para rotas inexistentes
+- **Loading States**: Indicadores de carregamento durante requisições
+- **Responsive Design**: Interface adaptável para mobile e desktop
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📄 Licença
 
-### Deployment
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 👨‍💻 Autor
 
-### `npm run build` fails to minify
+Desenvolvido como projeto de estudo em React, consumindo a API do The Movie Database.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+**Nota**: Este projeto é apenas para fins educacionais e de demonstração.
